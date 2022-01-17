@@ -23,11 +23,19 @@ body {
   flex-grow: 0;
   position: relative;
 }
-.sideBar img {
+.burgerMenu {
+  width: 84px;
+  height: 84px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--purple);
+  z-index: 1;
+}
+.burgerMenu img {
   width: 35px;
   margin-top: 32px;
-  margin-left: calc((var(--sideBarWidth) - 35px) / 2);
-  position: relative;
+  margin-left: calc((84px - 35px) / 2);
 }
 .hero {
   flex: 1;
