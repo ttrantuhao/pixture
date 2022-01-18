@@ -328,6 +328,7 @@ body {
   width: 100%;
   white-space: nowrap;
   overflow: auto;
+  scrollbar-width: none;
 }
 .mobileScrollListContainer::-webkit-scrollbar {
   display: none;
