@@ -69,96 +69,15 @@
 
     <!-- scroll list -->
     <div class="scrollContainer">
+      <button class="nextButton displayOnDesktop" id="pictureNextButton">
+        <img src="/images/arrowRight.svg" alt="" />
+      </button>
+      <button class="previousButton displayOnDesktop hidden" id="picturePreviousButton">
+        <img src="/images/arrowLeft.svg" alt="" />
+      </button>
       <div class="title displayOnDesktop">PICTURES WORTH SEEING</div>
-      <div class="pictureScrollListContainer displayOnDesktop">
-        <div class="item">
-          <div class="image">
-            <img src="/images/picture1.png" />
-            <div class="heart">
-              <img src="./images/heart.svg" />
-              <div>382</div>
-            </div>
-          </div>
-          <div class="content">
-            <div class="title">BLISS TEXTURE</div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-          <div class="action">
-            <div class="comment">
-              <img src="/images/comment.svg" /><span>374 comments</span>
-            </div>
-            <div class="option"><img src="./images/threeDotBlack.svg" /></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="image">
-            <img src="/images/picture1.png" />
-            <div class="heart">
-              <img src="./images/heart.svg" />
-              <div>382</div>
-            </div>
-          </div>
-          <div class="content">
-            <div class="title">BLISS TEXTURE</div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-          <div class="action">
-            <div class="comment">
-              <img src="/images/comment.svg" /><span>374 comments</span>
-            </div>
-            <div class="option"><img src="./images/threeDotBlack.svg" /></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="image">
-            <img src="/images/picture1.png" />
-            <div class="heart">
-              <img src="./images/heart.svg" />
-              <div>382</div>
-            </div>
-          </div>
-          <div class="content">
-            <div class="title">BLISS TEXTURE</div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-          <div class="action">
-            <div class="comment">
-              <img src="/images/comment.svg" /><span>374 comments</span>
-            </div>
-            <div class="option"><img src="./images/threeDotBlack.svg" /></div>
-          </div>
-        </div>
-        <div class="item">
-          <div class="image">
-            <img src="/images/picture1.png" />
-            <div class="heart">
-              <img src="./images/heart.svg" />
-              <div>382</div>
-            </div>
-          </div>
-          <div class="content">
-            <div class="title">BLISS TEXTURE</div>
-            <div class="description">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua.
-            </div>
-          </div>
-          <div class="action">
-            <div class="comment">
-              <img src="/images/comment.svg" /><span>374 comments</span>
-            </div>
-            <div class="option"><img src="./images/threeDotBlack.svg" /></div>
-          </div>
-        </div>
+      <div class="desktopScrollListContainer displayOnDesktop" id="pictureScrollList">
+        <div class="scrollList"></div>
       </div>
       <div class="mobileScrollListContainer displayOnMobile"></div>
     </div>
@@ -237,8 +156,16 @@
 
     <!-- scroll list -->
     <div class="scrollContainer">
+      <button class="nextButton displayOnDesktop" id="articleNextButton">
+        <img src="/images/arrowRight.svg" alt="" />
+      </button>
+      <button class="previousButton displayOnDesktop hidden" id="articlePreviousButton">
+        <img src="/images/arrowLeft.svg" alt="" />
+      </button>
       <div class="title displayOnDesktop">PICTURES WORTH SEEING</div>
-      <div class="articleScrollListContainer displayOnDesktop"></div>
+      <div class="desktopScrollListContainer displayOnDesktop" id="articleScrollList">
+        <div class="scrollList"></div>
+      </div>
     </div>
 
     <!-- core value -->
@@ -298,7 +225,7 @@
       <div class="footerSectionContainer">
         <div class="footerSection">
           <div class="title">ABOUT</div>
-          <div class="item">
+          <div class="footerItem">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore
           </div>
@@ -306,22 +233,22 @@
         <div class="footerSection">
           <div class="title">HISTORY</div>
           <ul class="itemContainer">
-            <li class="item">Resources</li>
-            <li class="item">Downloads & Updates</li>
-            <li class="item">Manuals</li>
-            <li class="item">Tech Specs</li>
-            <li class="item">System Status</li>
-            <li class="item">Accessibility</li>
+            <li class="footerItem">Resources</li>
+            <li class="footerItem">Downloads & Updates</li>
+            <li class="footerItem">Manuals</li>
+            <li class="footerItem">Tech Specs</li>
+            <li class="footerItem">System Status</li>
+            <li class="footerItem">Accessibility</li>
           </ul>
         </div>
 
         <div class="footerSection displayOnDesktop">
           <div class="title">CONTACT</div>
           <ul class="itemContainer">
-            <li class="item">Apple Store (Education Institutions)</li>
-            <li class="item">1300-551-927</li>
-            <li class="item">Apple Store (Small Business)</li>
-            <li class="item">1300-369-095</li>
+            <li class="footerItem">Apple Store (Education Institutions)</li>
+            <li class="footerItem">1300-551-927</li>
+            <li class="footerItem">Apple Store (Small Business)</li>
+            <li class="footerItem">1300-369-095</li>
           </ul>
         </div>
       </div>

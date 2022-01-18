@@ -123,10 +123,117 @@ function createItem(data) {
 }
 
 const mobileScrollContainer = document.querySelector('.mobileScrollListContainer');
-const pictureScrollContainer = document.querySelector('.pictureScrollContainer');
-const articleScrollContainer = document.querySelector('.articleScrollContainer');
+const pictureScrollContainer = document.querySelector('#pictureScrollList .scrollList');
+const articleScrollContainer = document.querySelector('#articleScrollList .scrollList');
+const pictureNextButton = document.getElementById('pictureNextButton');
+const picturePreviousButton = document.getElementById('picturePreviousButton');
+const articleNextButton = document.getElementById('articleNextButton');
+const articlePreviousButton = document.getElementById('articlePreviousButton');
 
-pictureData.forEach((data) => {
+const sideWidth = 84;
+const marginBetweenItem = 30;
+
+const containerWidth = window.innerWidth - sideWidth * 2;
+const itemWidth = (containerWidth - marginBetweenItem * 2) / 3;
+
+//--------------------------picture scroll--------------------------------
+pictureScrollContainer.style.width = containerWidth;
+createScrollList(pictureData, pictureScrollContainer);
+
+// click left, move slides to the left
+picturePreviousButton.addEventListener('click', (e) => {
+  const currentItem = pictureScrollContainer.querySelector('.current');
+  const previousItem = currentItem.previousElementSibling;
+  const pictureScrollList = Array.from(pictureScrollContainer.children);
+  const targetIndex = pictureScrollList.findIndex((slide) => slide === previousItem);
+  console.log(targetIndex);
+
+  //move to next slide
+  moveToItem(pictureScrollContainer, currentItem, previousItem);
+  updateArrow(targetIndex, pictureScrollList, picturePreviousButton, pictureNextButton);
+});
+
+// click right, move slides to the right
+pictureNextButton.addEventListener('click', (e) => {
+  const currentItem = pictureScrollContainer.querySelector('.current');
+  const nextItem = currentItem.nextElementSibling;
+  const pictureScrollList = Array.from(pictureScrollContainer.children);
+  const targetIndex = pictureScrollList.findIndex((slide) => slide === nextItem);
+  console.log(targetIndex);
+
+  //move to next slide
+  moveToItem(pictureScrollContainer, currentItem, nextItem);
+  updateArrow(targetIndex, pictureScrollList, picturePreviousButton, pictureNextButton);
+});
+
+//--------------------- article scroll----------------------
+articleScrollContainer.style.width = containerWidth;
+createScrollList(articleData, articleScrollContainer);
+
+// click left, move slides to the left
+articlePreviousButton.addEventListener('click', (e) => {
+  const currentItem = articleScrollContainer.querySelector('.current');
+  const previousItem = currentItem.previousElementSibling;
+  const articleScrollList = Array.from(articleScrollContainer.children);
+  const targetIndex = articleScrollList.findIndex((slide) => slide === previousItem);
+  console.log(targetIndex);
+
+  //move to next slide
+  moveToItem(articleScrollContainer, currentItem, previousItem);
+  updateArrow(targetIndex, articleScrollList, articlePreviousButton, articleNextButton);
+});
+
+// click right, move slides to the right
+articleNextButton.addEventListener('click', (e) => {
+  const currentItem = articleScrollContainer.querySelector('.current');
+  const nextItem = currentItem.nextElementSibling;
+  const articleScrollList = Array.from(articleScrollContainer.children);
+  const targetIndex = articleScrollList.findIndex((slide) => slide === nextItem);
+  console.log(targetIndex);
+
+  //move to next slide
+  moveToItem(articleScrollContainer, currentItem, nextItem);
+  updateArrow(targetIndex, articleScrollList, articlePreviousButton, articleNextButton);
+});
+
+//---------------------- mobile scroll----------------------
+pictureData.forEach((data, index) => {
   const item = createItem(data);
+  if (index === 0) {
+    item.style.marginLeft = marginBetweenItem + 'px';
+  }
   mobileScrollContainer.appendChild(item);
 });
+
+function createScrollList(dataList, container) {
+  dataList.forEach((data, index) => {
+    const item = createItem(data);
+    item.style.width = itemWidth + 'px';
+    item.setAttribute('left', index * (itemWidth + marginBetweenItem));
+    if (index === 0) {
+      item.classList.add('current');
+    }
+    container.appendChild(item);
+  });
+}
+
+function moveToItem(container, current, target) {
+  // console.log(target.getAttribute('left'));
+  container.style.transform = `translate(-${target.getAttribute('left')}px)`;
+  current.classList.remove('current');
+  target.classList.add('current');
+}
+
+function updateArrow(targetIndex, list, previousButton, nextButton) {
+  if (targetIndex === 0) {
+    console.log(previousButton.classList);
+    previousButton.classList.add('hidden');
+    nextButton.classList.remove('hidden');
+  } else if (targetIndex === list.length - 3) {
+    previousButton.classList.remove('hidden');
+    nextButton.classList.add('hidden');
+  } else {
+    previousButton.classList.remove('hidden');
+    nextButton.classList.remove('hidden');
+  }
+}
